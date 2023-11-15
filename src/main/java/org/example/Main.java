@@ -1,8 +1,14 @@
 package org.example;
 
+import java.awt.geom.Path2D;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.sun.org.apache.xml.internal.utils.XMLChar.isValid;
 
 public class Main {
     public static void main(String[] args) {
@@ -41,7 +47,54 @@ public class Main {
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
-        System.out.println("Danke Method!");
+        System.out.println("Students Information mit Header");
+         Path filePath = Path.of("students.csv");
+        try {
+            Files.lines(filePath)
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        System.out.println("Students Information ohne Header");
+//        Path filePath1 = Path.of("students.csv");
+//        try {
+//            Files.lines(filePath1)
+//                    .skip(1)
+//                    .map(line -> {
+//                        String[] parts = line.split(",");
+//                        // ID, Name, postalCode, age
+//                        int ID = Integer.parseInt(parts[0]);
+//                        String Name = parts[1];
+//                        String postalCode = parts[2];
+//                        String age = parts[3];
+//                        return new students.csv(ID, Name, postalCode, age);
+//
+//                    })
+//                    .forEach(System.out::println);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        Path filePath1 = Path.of("students.csv");
+        try {
+            // Using Files.lines to read the file line by line, skipping the header
+            List<List<String>> studentRecords = Files.lines(filePath1)
+                    .skip(1) // Skip the header
+                    .map(line -> List.of(line.split(",")))
+                    .filter(Main::isValid)
+                    .distinct()
+                    .collect(Collectors.toList());
+
+            // Print the list of student records
+            studentRecords.forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static boolean isValid(List<String> studentRecord) {
+        return studentRecord.size() >= 4;
     }
 }
