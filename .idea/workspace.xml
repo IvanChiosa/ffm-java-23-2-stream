@@ -48,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700053551755</updated>
-      <workItem from="1700053552915" duration="7308000" />
+      <workItem from="1700053552915" duration="8526000" />
     </task>
     <task id="LOCAL-00001" summary="Übung mit dem Stream, Enum und Optional.">
       <option name="closed" value="true" />
@@ -58,7 +58,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700060606305</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Übung mit dem Stream, Enum und Optional.">
+      <option name="closed" value="true" />
+      <created>1700063892888</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700063892888</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

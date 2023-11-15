@@ -16,7 +16,7 @@ public class Main {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         List<Integer> numbers1 = Arrays.asList(1, 50, 3, 4, 56, 6, 7, 23, 9, 10);
 
-        System.out.println("Ascending");
+        System.out.println();
         System.out.println("filter Method");
         numbers.stream()
                 .filter(number -> number % 2 == 0)
@@ -28,27 +28,27 @@ public class Main {
                 .forEach(System.out::println);
 
 
-        System.out.println("Ascending");
+        System.out.println("");
         System.out.println("sorted Method");
         numbers1.stream()
                 .sorted()
                 .toList()
                 .forEach(System.out::println);
 
-        System.out.println("Ascending");
+        System.out.println("");
         System.out.println("reduce method");
         int sum = numbers.stream()
                 .reduce(0, Integer::sum);
         System.out.println("Die sum ist : " + sum);
 
-        System.out.println("Ascending");
+        System.out.println("");
         System.out.println("collect method");
         numbers1.stream()
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
         System.out.println("Students Information mit Header");
-         Path filePath = Path.of("students.csv");
+        Path filePath = Path.of("students.csv");
         try {
             Files.lines(filePath)
                     .forEach(System.out::println);
@@ -95,6 +95,7 @@ public class Main {
     }
 
     private static boolean isValid(List<String> studentRecord) {
+        // Example: Check if the record has at least three fields
         return studentRecord.size() >= 4;
     }
 }
